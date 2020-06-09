@@ -57,4 +57,35 @@ public class S0001_0010 {
         }
         return maxLength;
     }
+
+    @Mark(order = 5, name = "longest-palindromic-substring", description = "最长回文子串")
+    public String longestPalindrome(String s) {
+        var maxLength = s.length();
+        if (maxLength < 2) return s;
+        while (true) {
+            for (var offset = 0; offset <= s.length() - maxLength; offset++) {
+                boolean done = true;
+                for (int i = offset, j = offset + maxLength - 1; i - offset < maxLength / 2; i++, j--)
+                    if (s.charAt(i) != s.charAt(j)) {
+                        done = false;
+                        break;
+                    }
+                if (done) return s.substring(offset, offset + maxLength);
+            }
+            maxLength--;
+        }
+    }
+
+    @Mark(order = 7, name = "reverse-integer", description = "整数反转")
+    public int reverse(int x) {
+        int res = 0;
+        while (x != 0) {
+            int t = x % 10;
+            int newRes = res * 10 + t;
+            if ((newRes - t) / 10 != res) return 0;
+            res = newRes;
+            x = x / 10;
+        }
+        return res;
+    }
 }
