@@ -1,8 +1,10 @@
 package com.leetcode;
 
 import com.leetcode.lang.Mark;
+import com.leetcode.lang.Solution;
 import com.leetcode.util.ListNode;
 
+@Solution
 public class S0141_0150 {
     @Mark(order = 141, name = "linked-list-cycle", description = "环形链表")
     public boolean hasCycle(ListNode head) {

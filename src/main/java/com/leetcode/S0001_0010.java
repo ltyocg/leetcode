@@ -1,10 +1,12 @@
 package com.leetcode;
 
 import com.leetcode.lang.Mark;
+import com.leetcode.lang.Solution;
 import com.leetcode.util.ListNode;
 
 import java.util.HashMap;
 
+@Solution
 public class S0001_0010 {
     @Mark(order = 1, name = "two-sum", description = "两数之和")
     public int[] twoSum(int[] nums, int target) {
@@ -87,5 +89,17 @@ public class S0001_0010 {
             x = x / 10;
         }
         return res;
+    }
+
+    @Mark(order = 9, name = "palindrome-number", description = "回文数")
+    public boolean isPalindrome(int x) {
+        if (x == 0) return true;
+        if (x < 0 || x % 10 == 0) return false;
+        int revertedNumber = 0;
+        while (x > revertedNumber) {
+            revertedNumber = revertedNumber * 10 + x % 10;
+            x /= 10;
+        }
+        return x == revertedNumber || x == revertedNumber / 10;
     }
 }
