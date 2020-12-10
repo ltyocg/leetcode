@@ -98,7 +98,6 @@ public class S0011_0020 {
 
     @Mark(order = 20, name = "valid-parentheses", description = "有效的括号")
     public boolean isValid(String s) {
-        if ("".equals(s)) return true;
         var stack = new Stack<Character>();
         for (char c : s.toCharArray()) {
             if (c == '(' || c == '[' || c == '{') stack.push(c);
